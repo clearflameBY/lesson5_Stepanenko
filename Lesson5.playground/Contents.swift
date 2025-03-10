@@ -15,7 +15,7 @@ func getExchangeRate(from: Currency, to: Currency) -> Double? {
     let eurToBynRate = 3.49
     let bynToEurRate = 0.28
     
-   if from == Currency.USD && to == Currency.EUR {
+if from == Currency.USD && to == Currency.EUR {
         return usdToEurRate
     } else if from == Currency.EUR && to == Currency.USD {
         return usdToBynRate
