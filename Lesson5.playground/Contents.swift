@@ -82,7 +82,6 @@ func getLetterGrade(score: Int) -> Grade? {
     }
 }
 func printExamResult(name: String, score: Int) -> String {
-    //guard score > 0 && score < 50 else { return "jisjf"}
     if let data = getLetterGrade(score: score) {
         var letterGrade: String = ""
         switch score {
