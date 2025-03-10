@@ -32,11 +32,9 @@ func getExchangeRate(from: Currency, to: Currency) -> Double? {
     }
 }
 
-//print(getExchangeRate(from: Currency.RawValue("USD"), to: Currency.RawValue("EUR")
-
 func convertCurrency(amount: Double, from: Currency, to: Currency) -> Double? {
     if let data = getExchangeRate(from: from, to: to) {
-        let amount1 = getExchangeRate(from: from, to: to)!
+        let amount1 = getExchangeRate(from: from, to: to) ?? 0
         if from == Currency.USD && to == Currency.EUR {
             return amount * amount1
         } else if from == Currency.EUR && to == Currency.USD {
@@ -54,8 +52,6 @@ func convertCurrency(amount: Double, from: Currency, to: Currency) -> Double? {
     print("Unable to convert. Rate unknown.")
     return nil
 }
-
-//print(convertCurrency(amount: 34, from: Currency.USD, to: Currency.BYN))
 
 // MARK: Second task
 enum Grade: Int {
