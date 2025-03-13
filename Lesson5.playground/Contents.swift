@@ -32,6 +32,8 @@ if from == Currency.USD && to == Currency.EUR {
     }
 }
 
+// TODO: Тебе не нужно получать 2 раза курс и перебирать еще раз все через if.
+// Получаешь курс между двумя валютами и умножаешь его на amount, этого достаточно.
 func convertCurrency(amount: Double, from: Currency, to: Currency) -> Double? {
     if let data = getExchangeRate(from: from, to: to) {
         let amount1 = getExchangeRate(from: from, to: to) ?? 0
@@ -77,6 +79,9 @@ func getLetterGrade(score: Int) -> Grade? {
         return nil
     }
 }
+
+// TODO: Здесь такая же ошибка как и в курсах. Тебе во второй функции не нужно уже ничего перебирать.
+// С помощью функции getLetterGrade ты уже получаешь готовую оценку. И если она не равна nil выводишь её.
 func printExamResult(name: String, score: Int) -> String {
     if let data = getLetterGrade(score: score) {
         var letterGrade: String = ""
