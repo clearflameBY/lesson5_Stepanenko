@@ -36,20 +36,8 @@ if from == Currency.USD && to == Currency.EUR {
 // Получаешь курс между двумя валютами и умножаешь его на amount, этого достаточно.
 func convertCurrency(amount: Double, from: Currency, to: Currency) -> Double? {
     if let data = getExchangeRate(from: from, to: to) {
-        let amount1 = getExchangeRate(from: from, to: to) ?? 0
-        if from == Currency.USD && to == Currency.EUR {
-            return amount * amount1
-        } else if from == Currency.EUR && to == Currency.USD {
-            return amount * amount1
-        } else if from == Currency.USD && to == Currency.BYN {
-            return amount * amount1
-        } else if from == Currency.BYN && to == Currency.USD {
-            return amount * amount1
-        } else if from == Currency.EUR && to == Currency.BYN {
-            return amount * amount1
-        } else if from == Currency.BYN && to == Currency.EUR {
-            return amount * amount1
-        }
+        let exchangeRate = getExchangeRate(from: from, to: to) ?? 0
+        return amount * exchangeRate
     }
     print("Unable to convert. Rate unknown.")
     return nil
