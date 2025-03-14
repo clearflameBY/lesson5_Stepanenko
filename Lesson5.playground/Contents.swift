@@ -42,6 +42,7 @@ func convertCurrency(amount: Double, from: Currency, to: Currency) -> Double? {
     print("Unable to convert. Rate unknown.")
     return nil
 }
+print(convertCurrency(amount: 34, from: Currency.BYN, to: Currency.EUR))
 
 // MARK: Second task
 enum Grade: Int {
