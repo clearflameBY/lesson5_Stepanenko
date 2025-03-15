@@ -73,23 +73,7 @@ func getLetterGrade(score: Int) -> Grade? {
 // С помощью функции getLetterGrade ты уже получаешь готовую оценку. И если она не равна nil выводишь её.
 func printExamResult(name: String, score: Int) -> String {
     if let data = getLetterGrade(score: score) {
-        var letterGrade: String = ""
-        switch score {
-        case 40...50:
-            letterGrade = "A"
-        case 30...39:
-            letterGrade = "B"
-        case 20...29:
-            letterGrade = "C"
-        case 10...19:
-            letterGrade = "D"
-        case 0...9:
-            letterGrade = "F"
-        default:
-            print("Xcode forced to install default case")
-        }
-        return name + " received " + letterGrade + ": " + String(score)
-        //return name + " received" + stringScore
+        return name + " received " + String(describing: getLetterGrade(score: score)) + ": " + String(score)
     }
     return name + " got an invalid grade" + ": " + String(score)
 }
